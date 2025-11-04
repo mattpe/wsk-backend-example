@@ -29,6 +29,9 @@ const cats = [
 // tai palvelimen juuri /
 app.use(express.static('public'));
 
+// parsii json-datan http-pyynnöstä
+app.use(express.json());
+
 // '/api'-polun juuri
 app.get('/api/v1', (req, res) => {
   res.send('Welcome to my REST API!');
@@ -53,6 +56,12 @@ app.get('/api/v1/cats/:id', (req, res) => {
     //res.sendStatus(404);
     res.status(404).json({message: 'cat not found'});
   }
+});
+
+app.post('/api/v1/cats', (req, res) => {
+  console.log(req.body);
+  // TODO: add posted cat to data
+  res.sendStatus(201);
 });
 
 app.listen(port, hostname, () => {
