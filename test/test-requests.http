@@ -1,5 +1,7 @@
 # api http test requests for VSCode rest client
 
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozOCwibmFtZSI6IlVsbGEgUyIsInVzZXJuYW1lIjoidWxsYXMiLCJlbWFpbCI6InVsbGFzQG1ldHJvcG9saWEuZmkiLCJyb2xlIjoidXNlciIsImlhdCI6MTc2MjUxNjA2MSwiZXhwIjoxNzYyNjAyNDYxfQ.PODEOTFa_ZeU4Zy-x7Tc7Hq-oHg6tTl00a9cJbq2tnk
+
 ### get cats
 GET http://localhost:3000/api/v1/cats
 
@@ -66,7 +68,7 @@ DELETE http://127.0.0.1:3000/api/v1/cats/9590
 
 ### get user
 GET http://localhost:3000/api/v1/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozOCwibmFtZSI6IlVsbGEgUyIsInVzZXJuYW1lIjoidWxsYXMiLCJlbWFpbCI6InVsbGFzQG1ldHJvcG9saWEuZmkiLCJyb2xlIjoidXNlciIsImlhdCI6MTc2MjUxNjA2MSwiZXhwIjoxNzYyNjAyNDYxfQ.PODEOTFa_ZeU4Zy-x7Tc7Hq-oHg6tTl00a9cJbq2tnk
+Authorization: Bearer {{token}}
 
 
 ### get user by id
@@ -96,7 +98,7 @@ Content-Type: application/json
 
 ### Get my user info
 GET http://localhost:3000/api/v1/auth/me
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozOCwibmFtZSI6IlVsbGEgUyIsInVzZXJuYW1lIjoidWxsYXMiLCJlbWFpbCI6InVsbGFzQG1ldHJvcG9saWEuZmkiLCJyb2xlIjoidXNlciIsImlhdCI6MTc2MjUxNjA2MSwiZXhwIjoxNzYyNjAyNDYxfQ.PODEOTFa_ZeU4Zy-x7Tc7Hq-oHg6tTl00a9cJbq2tnk
+Authorization: Bearer {{token}}
 
 
 ### Modify existing user
