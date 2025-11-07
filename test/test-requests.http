@@ -8,6 +8,11 @@ GET http://localhost:3000/api/v1/cats
 ### get cat by id
 GET http://localhost:3000/api/v1/cats/41
 
+### Get cats by user id
+GET http://localhost:3000/api/v1/cats/user/37
+Authorization: Bearer {{token}}
+
+
 ### post new cat
 POST http://localhost:3000/api/v1/cats
 Content-Type: application/json
@@ -22,6 +27,7 @@ Content-Type: application/json
 
 ### post new cat with image
 POST http://127.0.0.1:3000/api/v1/cats HTTP/1.1
+Authorization: Bearer {{token}}
 Content-Type: multipart/form-data; boundary=MyBoundary
 
 --MyBoundary
@@ -32,10 +38,6 @@ Misu
 Content-Disposition: form-data; name="weight"
 
 6
---MyBoundary
-Content-Disposition: form-data; name="owner"
-
-37
 --MyBoundary
 Content-Disposition: form-data; name="birthdate"
 
@@ -100,6 +102,9 @@ Content-Type: application/json
 GET http://localhost:3000/api/v1/auth/me
 Authorization: Bearer {{token}}
 
+### Get my cats
+GET http://localhost:3000/api/v1/cats/user
+Authorization: Bearer {{token}}
 
 ### Modify existing user
 PUT http://127.0.0.1:3000/api/v1/users/3609

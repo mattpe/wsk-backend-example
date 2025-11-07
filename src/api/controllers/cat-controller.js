@@ -1,7 +1,23 @@
-import {addCat, findCatById, listAllCats} from '../models/cat-model.js';
+import {
+  addCat,
+  findCatById,
+  listAllCats,
+  listCatsByUserId,
+} from '../models/cat-model.js';
 
 const getCat = async (req, res) => {
   res.json(await listAllCats());
+};
+
+const getCatsByUserId = async (req, res) => {
+  const cats = await listCatsByUserId(req.params.id);
+  res.json(cats);
+};
+
+const getMyCats = async (req, res) => {
+  console.log('getting cats for', res.locals.user.user_id);
+  const cats = await listCatsByUserId(res.locals.user.user_id);
+  res.json(cats);
 };
 
 const getCatById = async (req, res) => {
@@ -14,13 +30,15 @@ const getCatById = async (req, res) => {
 };
 
 const postCat = async (req, res) => {
-  console.log(req.body);
-  console.log(req.file);
-  console.log(req.file.filename);
-  // lisätään tiedostonimi req.bodyyn, jotta addCat saa kaiken
-  req.body.filename = req.file.filename;
+  //console.log(req.body);
+  //console.log(req.file);
+  //console.log(req.file.filename);
+  const newCat = req.body;
+  // lisätään tiedostonimi , jotta addCat saa kaiken
+  newCat.filename = req.file.filename;
+  newCat.owner = res.locals.user.user_id;
 
-  const result = await addCat(req.body);
+  const result = await addCat(newCat);
   if (result.cat_id) {
     res.status(201);
     res.json({message: 'New cat added.', result});
@@ -41,4 +59,12 @@ const deleteCat = (req, res) => {
   res.json({message: 'Cat item deleted.'});
 };
 
-export {getCat, getCatById, postCat, putCat, deleteCat};
+export {
+  getCat,
+  getCatsByUserId,
+  getMyCats,
+  getCatById,
+  postCat,
+  putCat,
+  deleteCat,
+};
