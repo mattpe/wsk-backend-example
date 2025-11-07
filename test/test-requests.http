@@ -78,7 +78,16 @@ Content-Type: application/json
     "name": "Ulla S",
     "username": "ullas",
     "email": "ullas@metropolia.fi",
-    "role": "admin",
+    "role": "user",
+    "password": "password"
+}
+
+### post auth/login
+POST http://localhost:3000/api/v1/auth/login
+Content-Type: application/json
+
+{
+    "username": "ullas",
     "password": "password"
 }
 
@@ -88,7 +97,7 @@ Content-Type: application/json
 
 {
     "name": "Ulla S",
-    "username": "ullas",
+    "username": "ullas2",
     "email": "ullas@metropolia.fi",
     "role": "admin",
     "password": "password"
