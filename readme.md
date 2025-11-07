@@ -1,3 +1,5 @@
-# Node & Express esimerkit
+# Node & Express -esimerkki
 
-Lisää esimerkkikoodeja löytyy tämän repositorion muista haaroista (branch).
+Opettajan esimerkki back-end-sovelluskehitykseen.
+
+Katso myös repon muut haarat (branch).
