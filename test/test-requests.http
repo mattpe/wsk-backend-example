@@ -66,6 +66,8 @@ DELETE http://127.0.0.1:3000/api/v1/cats/9590
 
 ### get user
 GET http://localhost:3000/api/v1/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozOCwibmFtZSI6IlVsbGEgUyIsInVzZXJuYW1lIjoidWxsYXMiLCJlbWFpbCI6InVsbGFzQG1ldHJvcG9saWEuZmkiLCJyb2xlIjoidXNlciIsImlhdCI6MTc2MjUxNjA2MSwiZXhwIjoxNzYyNjAyNDYxfQ.PODEOTFa_ZeU4Zy-x7Tc7Hq-oHg6tTl00a9cJbq2tnk
+
 
 ### get user by id
 GET http://localhost:3000/api/v1/users/38
@@ -91,6 +93,12 @@ Content-Type: application/json
     "password": "password"
 }
 
+
+### Get my user info
+GET http://localhost:3000/api/v1/auth/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozOCwibmFtZSI6IlVsbGEgUyIsInVzZXJuYW1lIjoidWxsYXMiLCJlbWFpbCI6InVsbGFzQG1ldHJvcG9saWEuZmkiLCJyb2xlIjoidXNlciIsImlhdCI6MTc2MjUxNjA2MSwiZXhwIjoxNzYyNjAyNDYxfQ.PODEOTFa_ZeU4Zy-x7Tc7Hq-oHg6tTl00a9cJbq2tnk
+
+
 ### Modify existing user
 PUT http://127.0.0.1:3000/api/v1/users/3609
 Content-Type: application/json
@@ -105,8 +113,4 @@ Content-Type: application/json
 
 ### Delete cat by user
 DELETE http://127.0.0.1:3000/api/v1/users/3609
-
-
-
-
 
