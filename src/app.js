@@ -8,28 +8,13 @@ const app = express();
 app.use(express.static('public'));
 
 // parsii json-datan http-pyynnöstä
+console.log('Moi');
 app.use(express.json());
 // formdataa varten
 app.use(express.urlencoded({extended: true}));
 
 // lisää prefixin ja ohjaa siten kaikkki api-routerin sisällä oleville reiteille
-app.use('/api/v1', api);
+app.use('/api/v2', api);
 
-// yksinkertainen middleware
-app.get(
-  '/example/middleware',
-  (req, res, next) => {
-    console.log('Moro olen täällä;');
-    next();
-  },
-  (req, res, next) => {
-    console.log('Olen middleware ja käsittelen dataa');
-    next();
-  },
-  (req, res) => {
-    console.log('Moikka, pääsin perille asti');
-    res.send('Tiedosto upattu ja käsitelty');
-  }
-);
 
 export default app;
