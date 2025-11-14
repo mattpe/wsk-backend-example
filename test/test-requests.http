@@ -34,11 +34,11 @@ Content-Type: multipart/form-data; boundary=MyBoundary
 --MyBoundary
 Content-Disposition: form-data; name="cat_name"
 
-Misufsd
+Misu
 --MyBoundary
 Content-Disposition: form-data; name="weight"
 
-6
+29
 --MyBoundary
 Content-Disposition: form-data; name="birthdate"
 

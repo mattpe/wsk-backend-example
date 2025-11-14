@@ -22,8 +22,8 @@ catRouter
     authenticateToken,
     upload.single('file'),
     body('cat_name').trim().isLength({min: 3, max: 128}).escape(),
-    body('weight').trim().isNumeric().toFloat(),
-    // TODO: custom validator coming
+    // custom validator adds validation error if the value test function returns false
+    body('weight').trim().isNumeric().toFloat().custom(length => length > 0 && length < 30),
     validationErrors,
     postCat
   );
