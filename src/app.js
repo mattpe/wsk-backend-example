@@ -15,5 +15,4 @@ app.use(express.urlencoded({extended: true}));
 // lisää prefixin ja ohjaa siten kaikkki api-routerin sisällä oleville reiteille
 app.use('/api/v1', api);
 
-
 export default app;
