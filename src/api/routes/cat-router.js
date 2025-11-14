@@ -9,13 +9,24 @@ import {
   getMyCats,
 } from '../controllers/cat-controller.js';
 
-// multer imports
-import multer from 'multer';
 import {authenticateToken} from '../../middlewares/authentication.js';
-const upload = multer({dest: 'uploads/'});
+import {upload} from '../../middlewares/upload.js';
+import {body} from 'express-validator';
+import {validationErrors} from '../../middlewares/error-handlers.js';
 
 const catRouter = express.Router();
-catRouter.route('/').get(getCat).post(authenticateToken, upload.single('file'), postCat);
+catRouter
+  .route('/')
+  .get(getCat)
+  .post(
+    authenticateToken,
+    upload.single('file'),
+    body('cat_name').trim().isLength({min: 3, max: 128}).escape(),
+    body('weight').trim().isNumeric().toFloat(),
+    // TODO: custom validator coming
+    validationErrors,
+    postCat
+  );
 // omat kuvat
 catRouter.route('/user').get(authenticateToken, getMyCats);
 // jonkun muun käyttäjän kuvat

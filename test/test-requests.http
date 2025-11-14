@@ -1,12 +1,12 @@
 # api http test requests for VSCode rest client
 
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozOCwibmFtZSI6IlVsbGEgUyIsInVzZXJuYW1lIjoidWxsYXMiLCJlbWFpbCI6InVsbGFzQG1ldHJvcG9saWEuZmkiLCJyb2xlIjoidXNlciIsImlhdCI6MTc2MjUxNjA2MSwiZXhwIjoxNzYyNjAyNDYxfQ.PODEOTFa_ZeU4Zy-x7Tc7Hq-oHg6tTl00a9cJbq2tnk
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozOCwibmFtZSI6IlVsbGEgUyIsInVzZXJuYW1lIjoidWxsYXMiLCJlbWFpbCI6InVsbGFzQG1ldHJvcG9saWEuZmkiLCJyb2xlIjoidXNlciIsImlhdCI6MTc2MzEwNTUyMSwiZXhwIjoxNzYzMTkxOTIxfQ.2w2nim8WbvMuGSHzXJUngx0mioJ3zrSBOTpixqbuWLA
 
 ### get cats
 GET http://localhost:3000/api/v1/cats
 
 ### get cat by id
-GET http://localhost:3000/api/v1/cats/41
+GET http://localhost:3000/api/v1/cats/47
 
 ### Get cats by user id
 GET http://localhost:3000/api/v1/cats/user/37
@@ -15,6 +15,7 @@ Authorization: Bearer {{token}}
 
 ### post new cat
 POST http://localhost:3000/api/v1/cats
+Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
@@ -33,7 +34,7 @@ Content-Type: multipart/form-data; boundary=MyBoundary
 --MyBoundary
 Content-Disposition: form-data; name="cat_name"
 
-Misu
+Misufsd
 --MyBoundary
 Content-Disposition: form-data; name="weight"
 

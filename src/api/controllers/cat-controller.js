@@ -29,12 +29,17 @@ const getCatById = async (req, res) => {
   }
 };
 
-const postCat = async (req, res) => {
+const postCat = async (req, res, next) => {
   //console.log(req.body);
   //console.log(req.file);
   //console.log(req.file.filename);
   const newCat = req.body;
   // lisätään tiedostonimi , jotta addCat saa kaiken
+  if (!req.file) {
+    const error = new Error('File missing');
+    error.status = 400;
+    next(error);
+  }
   newCat.filename = req.file.filename;
   newCat.owner = res.locals.user.user_id;
 
