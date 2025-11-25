@@ -11,4 +11,11 @@
    queueLimit: 0,
  });
  const promisePool = pool.promise();
+
+ // function to close pool
+ const closePool = async () => {
+   await promisePool.end();
+ };
+
  export default promisePool;
+ export {closePool};
